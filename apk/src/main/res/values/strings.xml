@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">SimpleChatApk</string>
+
+    <string name="error_no_more">没有更多啦～</string>
+    <string name="error_wrong_param">参数错误</string>
+
+    <string name="square">广场</string>
+    <string name="pager">View pager</string>
+    <string name="img_viewer">浏览图片</string>
+    <string name="img_picker">选择图片</string>
+    <string name="game_ball">球球球</string>
+    <string name="game_hand">神手</string>
+    <string name="game_anti_war">基地保卫战</string>
+    <string name="game_landowner">斗地主</string>
+    <string name="agora">声网</string>
+
+
+    <string name="content_desc_header">头像图片</string>
+    <string name="content_desc_menu">菜单图片</string>
+
+    <string name="formatter_i_d_i">%d/%d</string>
+
+
+    <string name="download">下载</string>
+</resources>

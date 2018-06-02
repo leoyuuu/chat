@@ -1,8 +1,11 @@
-archivesBaseName = ':client_console_impl'
+apply plugin:'kotlin'
+apply plugin:'java'
+apply plugin:'idea'
 
 dependencies{
     compile(project(':client'))
     compile(project(':util'))
+    compile "org.jetbrains.kotlin:kotlin-stdlib"
     testImplementation 'junit:junit:4.12'
 }
 

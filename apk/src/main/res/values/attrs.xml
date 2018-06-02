@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleFrameLayout">
+        <attr name="cf_radius" format="dimension" />
+        <attr name="cf_top_left_radius" format="dimension" />
+        <attr name="cf_top_right_radius" format="dimension" />
+        <attr name="cf_bottom_left_radius" format="dimension" />
+        <attr name="cf_bottom_right_radius" format="dimension" />
+        <attr name="cf_bg_color" format="color" />
+    </declare-styleable>
+</resources>

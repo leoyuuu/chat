@@ -65,6 +65,7 @@ fun send(msg:String) {
 
 fun main(args:Array<String>) {
     showMsg("I am a console chat client")
+    showMsg("this is just a simple implication")
     if (args.isEmpty()) {
         uid = System.currentTimeMillis().toInt()
     } else {
