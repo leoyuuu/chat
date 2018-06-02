@@ -1,0 +1,27 @@
+archivesBaseName = ':server'
+
+dependencies{
+    compile(project(':proto'))
+    compile(project(':util'))
+}
+
+task copyDependencies(type: Copy) {
+    from configurations.runtime
+    into 'build/libs/lib'
+}
+
+jar.dependsOn(copyDependencies)
+
+jar {
+    baseName = 'server'
+    version = '1.0'
+    manifest {
+        attributes "Implementation-Title": project.name
+        attributes "Implementation-Version": '1.0.0'
+        attributes 'Main-Class': "me.leoyuu.server.ServerMainKt"
+    }
+
+    if (!configurations.runtime.isEmpty()) {
+        manifest.attributes('Class-Path': '. lib/' + configurations.runtime.collect { it.name }.join(' lib/'))
+    }
+}

@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option java_package = "me.leoyuu.proto";
+option java_outer_classname = "ChatPackets";
+
+enum ChatMsgType {
+    ChatReverseMsg = 0;
+    ChatNormalMsg = 1;
+    ChatSystemMsg = 2;
+    ChatImgMsg = 3;
+    ChatVideoMsg = 4;
+    ChatShareMsg = 5;
+}
+
+message ChatMsgExtraJson {
+    string msg = 1;
+}
+
+message ChatMsgExtraImg {
+    string path = 1;
+}
+
+message ChatMsgExtraVideo {
+    string path = 1;
+}
+
+message ChatMsgExtraShare {
+    string title = 1;
+    string iconUrl = 2;
+    string desc = 3;
+    string url = 4;
+}
+
+message ChatMsgExtra {
+    ChatMsgExtraImg img = 2;
+    ChatMsgExtraVideo video = 3;
+    ChatMsgExtraShare share = 4;
+}
+
+message ChatMsg {
+    int32 mid = 1;
+    int32 fromUid = 2; // may null
+    int32 toUid = 3; // may null
+    int32 toMid = 4; // may null
+    int32 gid = 5; // may null
+    string text = 6;
+    string json = 7;
+    ChatMsgType type = 8;
+    ChatMsgExtra extra = 9;
+}

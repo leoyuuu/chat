@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_package = "me.leoyuu.proto";
+option java_outer_classname = "SystemPackets";
+
+enum SysMsgType {
+    SysReverseMsg = 0;
+    SysBindMsg    = 1;
+    SysBindRspMsg = 2;
+}
+
+
+message SysBind {
+    int32  uid = 1;
+    string sid = 2;
+}
+
+message SysBindRsp {
+    int32 heartBeatInterval = 1;
+}
+
+message SysMsgContent {
+    SysBind    bind    = 1;
+    SysBindRsp bindRsp = 2;
+}
+
+message SysMsg {
+    SysMsgType type = 1;
+    SysMsgContent content = 2;
+}

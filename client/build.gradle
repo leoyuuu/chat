@@ -1,0 +1,26 @@
+archivesBaseName = ':client'
+
+dependencies{
+    compile(project(':proto'))
+    compile(project(':util'))
+}
+
+task copyDependencies(type: Copy) {
+    from configurations.runtime
+    into 'build/libs/lib'
+}
+
+jar.dependsOn(copyDependencies)
+
+jar {
+    baseName = 'client'
+    version = '1.0'
+    manifest {
+        attributes "Implementation-Title": project.name
+        attributes "Implementation-Version": '1.0.0'
+    }
+
+    if (!configurations.runtime.isEmpty()) {
+        manifest.attributes('Class-Path': '. lib/' + configurations.runtime.collect { it.name }.join(' lib/'))
+    }
+}

@@ -1,0 +1,28 @@
+archivesBaseName = ':client_console_impl'
+
+dependencies{
+    compile(project(':client'))
+    compile(project(':util'))
+    testImplementation 'junit:junit:4.12'
+}
+
+task copyDependencies(type: Copy) {
+    from configurations.runtime
+    into 'build/libs/lib'
+}
+
+jar.dependsOn(copyDependencies)
+
+jar {
+    baseName = 'client-console'
+    version = '1.0'
+    manifest {
+        attributes "Implementation-Title": project.name
+        attributes "Implementation-Version": '1.0.0'
+        attributes 'Main-Class': "me.leoyuu.chat.console.MainKt"
+    }
+
+    if (!configurations.runtime.isEmpty()) {
+        manifest.attributes('Class-Path': '. lib/' + configurations.runtime.collect { it.name }.join(' lib/'))
+    }
+}

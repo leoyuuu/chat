@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "sys.proto";
+import "chat.proto";
+
+option java_package = "me.leoyuu.proto";
+option java_outer_classname = "BasePackets";
+
+message PacketContent {
+    SysMsg sysMsg   = 1;
+    ChatMsg chatMsg = 2;
+}
+
+enum PacketType {
+    AppReverseMsg = 0;
+    AppSystemMsg  = 1;
+    AppChatMsg    = 2;
+}
+
+message Packet {
+    int32 seq  = 1;
+    int32 code = 2;
+    string msg = 3;
+    PacketType type = 4;
+    PacketContent content = 5;
+}
