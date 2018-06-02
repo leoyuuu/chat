@@ -6,6 +6,7 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
+        applicationId "me.leoyuu.chat.apk"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
