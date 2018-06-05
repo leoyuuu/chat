@@ -6,21 +6,27 @@ import me.leoyuu.chat.base.net.ChatConnector
 import me.leoyuu.chat.base.net.PacketSender
 import me.leoyuu.proto.BasePackets
 
-class ChatClient(private val config: ChatClientConfig) {
+class ChatClient() {
+    var config:ChatClientConfig? = null
     private var connector = ChatConnector()
     private var packetSender:PacketSender? = null
 
     fun connect(callback: Callback?) {
-        connector.connect(config, object : ChatConnector.ConnectCallback {
-            override fun onFailed(msg: String) {
-                callback?.onFailed(msg)
-            }
+        val c = config
+        if (c == null) {
+            callback?.onFailed("please set config first")
+        } else {
+            connector.connect(c, object : ChatConnector.ConnectCallback {
+                override fun onFailed(msg: String) {
+                    callback?.onFailed(msg)
+                }
 
-            override fun onSuccess(sender: PacketSender) {
-                packetSender = sender
-                callback?.onSuccess()
-            }
-        })
+                override fun onSuccess(sender: PacketSender) {
+                    packetSender = sender
+                    callback?.onSuccess()
+                }
+            })
+        }
     }
 
     fun sendPacket(packet: BasePackets.Packet, sendCallback: SendCallback) {

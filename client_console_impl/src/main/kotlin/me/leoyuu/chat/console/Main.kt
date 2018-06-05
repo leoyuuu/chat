@@ -29,8 +29,8 @@ val sendCallback = object :SendCallback {
     }
 }
 
-val config = ChatClientConfig("127.0.0.1", 9909, receiver)
-val client = ChatClient(config)
+val config = ChatClientConfig("118.190.98.99", 9909, receiver)
+val client = ChatClient()
 var uid:Int = 0
 var sid = "123456"
 var toUid:Int = 0
@@ -66,6 +66,7 @@ fun send(msg:String) {
 fun main(args:Array<String>) {
     showMsg("I am a console chat client")
     showMsg("this is just a simple implication")
+    client.config = config
     if (args.isEmpty()) {
         uid = System.currentTimeMillis().toInt()
     } else {

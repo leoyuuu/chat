@@ -71,6 +71,7 @@ class PacketHandler(private val skt:Socket, private val packetReceiver: PacketRe
 
     private fun sendPacketInternal(packet: BasePackets.Packet, callback: SendCallback) {
         try {
+            CallbackManager.addCallback(packet.seq, callback)
             ProtoPktIoHelper.write(packet, outputStream)
         } catch (e:Exception) {
             callback.onFailed(e.localizedMessage)
