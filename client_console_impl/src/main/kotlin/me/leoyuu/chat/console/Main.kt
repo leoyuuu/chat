@@ -36,7 +36,7 @@ var sid = "123456"
 var toUid:Int = 0
 
 fun bindSelf() {
-    client.sendPacket(ProtoClientPktHelper.buildBindPacket(uid, sid), sendCallback)
+    client.sendPacket(ProtoClientPktHelper.buildBindPacket(uid, sid, "$uid"), sendCallback)
 }
 
 fun startChat() {

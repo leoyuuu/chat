@@ -31,6 +31,10 @@ public final class BasePackets {
      * <code>AppChatMsg = 2;</code>
      */
     AppChatMsg(2),
+    /**
+     * <code>AppUserMsg = 3;</code>
+     */
+    AppUserMsg(3),
     UNRECOGNIZED(-1),
     ;
 
@@ -46,6 +50,10 @@ public final class BasePackets {
      * <code>AppChatMsg = 2;</code>
      */
     public static final int AppChatMsg_VALUE = 2;
+    /**
+     * <code>AppUserMsg = 3;</code>
+     */
+    public static final int AppUserMsg_VALUE = 3;
 
 
     public final int getNumber() {
@@ -69,6 +77,7 @@ public final class BasePackets {
         case 0: return AppReverseMsg;
         case 1: return AppSystemMsg;
         case 2: return AppChatMsg;
+        case 3: return AppUserMsg;
         default: return null;
       }
     }
@@ -150,6 +159,19 @@ public final class BasePackets {
      * <code>optional .ChatMsg chatMsg = 2;</code>
      */
     me.leoyuu.proto.ChatPackets.ChatMsgOrBuilder getChatMsgOrBuilder();
+
+    /**
+     * <code>optional .UserMsg userMsg = 3;</code>
+     */
+    boolean hasUserMsg();
+    /**
+     * <code>optional .UserMsg userMsg = 3;</code>
+     */
+    me.leoyuu.proto.UserPackets.UserMsg getUserMsg();
+    /**
+     * <code>optional .UserMsg userMsg = 3;</code>
+     */
+    me.leoyuu.proto.UserPackets.UserMsgOrBuilder getUserMsgOrBuilder();
   }
   /**
    * Protobuf type {@code PacketContent}
@@ -212,6 +234,19 @@ public final class BasePackets {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(chatMsg_);
                 chatMsg_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              me.leoyuu.proto.UserPackets.UserMsg.Builder subBuilder = null;
+              if (userMsg_ != null) {
+                subBuilder = userMsg_.toBuilder();
+              }
+              userMsg_ = input.readMessage(me.leoyuu.proto.UserPackets.UserMsg.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(userMsg_);
+                userMsg_ = subBuilder.buildPartial();
               }
 
               break;
@@ -281,6 +316,27 @@ public final class BasePackets {
       return getChatMsg();
     }
 
+    public static final int USERMSG_FIELD_NUMBER = 3;
+    private me.leoyuu.proto.UserPackets.UserMsg userMsg_;
+    /**
+     * <code>optional .UserMsg userMsg = 3;</code>
+     */
+    public boolean hasUserMsg() {
+      return userMsg_ != null;
+    }
+    /**
+     * <code>optional .UserMsg userMsg = 3;</code>
+     */
+    public me.leoyuu.proto.UserPackets.UserMsg getUserMsg() {
+      return userMsg_ == null ? me.leoyuu.proto.UserPackets.UserMsg.getDefaultInstance() : userMsg_;
+    }
+    /**
+     * <code>optional .UserMsg userMsg = 3;</code>
+     */
+    public me.leoyuu.proto.UserPackets.UserMsgOrBuilder getUserMsgOrBuilder() {
+      return getUserMsg();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -299,6 +355,9 @@ public final class BasePackets {
       if (chatMsg_ != null) {
         output.writeMessage(2, getChatMsg());
       }
+      if (userMsg_ != null) {
+        output.writeMessage(3, getUserMsg());
+      }
     }
 
     public int getSerializedSize() {
@@ -313,6 +372,10 @@ public final class BasePackets {
       if (chatMsg_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getChatMsg());
+      }
+      if (userMsg_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getUserMsg());
       }
       memoizedSize = size;
       return size;
@@ -340,6 +403,11 @@ public final class BasePackets {
         result = result && getChatMsg()
             .equals(other.getChatMsg());
       }
+      result = result && (hasUserMsg() == other.hasUserMsg());
+      if (hasUserMsg()) {
+        result = result && getUserMsg()
+            .equals(other.getUserMsg());
+      }
       return result;
     }
 
@@ -357,6 +425,10 @@ public final class BasePackets {
       if (hasChatMsg()) {
         hash = (37 * hash) + CHATMSG_FIELD_NUMBER;
         hash = (53 * hash) + getChatMsg().hashCode();
+      }
+      if (hasUserMsg()) {
+        hash = (37 * hash) + USERMSG_FIELD_NUMBER;
+        hash = (53 * hash) + getUserMsg().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -488,6 +560,12 @@ public final class BasePackets {
           chatMsg_ = null;
           chatMsgBuilder_ = null;
         }
+        if (userMsgBuilder_ == null) {
+          userMsg_ = null;
+        } else {
+          userMsg_ = null;
+          userMsgBuilder_ = null;
+        }
         return this;
       }
 
@@ -519,6 +597,11 @@ public final class BasePackets {
           result.chatMsg_ = chatMsg_;
         } else {
           result.chatMsg_ = chatMsgBuilder_.build();
+        }
+        if (userMsgBuilder_ == null) {
+          result.userMsg_ = userMsg_;
+        } else {
+          result.userMsg_ = userMsgBuilder_.build();
         }
         onBuilt();
         return result;
@@ -566,6 +649,9 @@ public final class BasePackets {
         }
         if (other.hasChatMsg()) {
           mergeChatMsg(other.getChatMsg());
+        }
+        if (other.hasUserMsg()) {
+          mergeUserMsg(other.getUserMsg());
         }
         onChanged();
         return this;
@@ -825,6 +911,123 @@ public final class BasePackets {
           chatMsg_ = null;
         }
         return chatMsgBuilder_;
+      }
+
+      private me.leoyuu.proto.UserPackets.UserMsg userMsg_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          me.leoyuu.proto.UserPackets.UserMsg, me.leoyuu.proto.UserPackets.UserMsg.Builder, me.leoyuu.proto.UserPackets.UserMsgOrBuilder> userMsgBuilder_;
+      /**
+       * <code>optional .UserMsg userMsg = 3;</code>
+       */
+      public boolean hasUserMsg() {
+        return userMsgBuilder_ != null || userMsg_ != null;
+      }
+      /**
+       * <code>optional .UserMsg userMsg = 3;</code>
+       */
+      public me.leoyuu.proto.UserPackets.UserMsg getUserMsg() {
+        if (userMsgBuilder_ == null) {
+          return userMsg_ == null ? me.leoyuu.proto.UserPackets.UserMsg.getDefaultInstance() : userMsg_;
+        } else {
+          return userMsgBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .UserMsg userMsg = 3;</code>
+       */
+      public Builder setUserMsg(me.leoyuu.proto.UserPackets.UserMsg value) {
+        if (userMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          userMsg_ = value;
+          onChanged();
+        } else {
+          userMsgBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .UserMsg userMsg = 3;</code>
+       */
+      public Builder setUserMsg(
+          me.leoyuu.proto.UserPackets.UserMsg.Builder builderForValue) {
+        if (userMsgBuilder_ == null) {
+          userMsg_ = builderForValue.build();
+          onChanged();
+        } else {
+          userMsgBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .UserMsg userMsg = 3;</code>
+       */
+      public Builder mergeUserMsg(me.leoyuu.proto.UserPackets.UserMsg value) {
+        if (userMsgBuilder_ == null) {
+          if (userMsg_ != null) {
+            userMsg_ =
+              me.leoyuu.proto.UserPackets.UserMsg.newBuilder(userMsg_).mergeFrom(value).buildPartial();
+          } else {
+            userMsg_ = value;
+          }
+          onChanged();
+        } else {
+          userMsgBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .UserMsg userMsg = 3;</code>
+       */
+      public Builder clearUserMsg() {
+        if (userMsgBuilder_ == null) {
+          userMsg_ = null;
+          onChanged();
+        } else {
+          userMsg_ = null;
+          userMsgBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .UserMsg userMsg = 3;</code>
+       */
+      public me.leoyuu.proto.UserPackets.UserMsg.Builder getUserMsgBuilder() {
+        
+        onChanged();
+        return getUserMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .UserMsg userMsg = 3;</code>
+       */
+      public me.leoyuu.proto.UserPackets.UserMsgOrBuilder getUserMsgOrBuilder() {
+        if (userMsgBuilder_ != null) {
+          return userMsgBuilder_.getMessageOrBuilder();
+        } else {
+          return userMsg_ == null ?
+              me.leoyuu.proto.UserPackets.UserMsg.getDefaultInstance() : userMsg_;
+        }
+      }
+      /**
+       * <code>optional .UserMsg userMsg = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          me.leoyuu.proto.UserPackets.UserMsg, me.leoyuu.proto.UserPackets.UserMsg.Builder, me.leoyuu.proto.UserPackets.UserMsgOrBuilder> 
+          getUserMsgFieldBuilder() {
+        if (userMsgBuilder_ == null) {
+          userMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              me.leoyuu.proto.UserPackets.UserMsg, me.leoyuu.proto.UserPackets.UserMsg.Builder, me.leoyuu.proto.UserPackets.UserMsgOrBuilder>(
+                  getUserMsg(),
+                  getParentForChildren(),
+                  isClean());
+          userMsg_ = null;
+        }
+        return userMsgBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1809,15 +2012,16 @@ public final class BasePackets {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nbase.proto\032\tsys.proto\032\nchat.proto\"C\n\rP" +
-      "acketContent\022\027\n\006sysMsg\030\001 \001(\0132\007.SysMsg\022\031\n" +
-      "\007chatMsg\030\002 \001(\0132\010.ChatMsg\"l\n\006Packet\022\013\n\003se" +
-      "q\030\001 \001(\005\022\014\n\004code\030\002 \001(\005\022\013\n\003msg\030\003 \001(\t\022\031\n\004ty" +
-      "pe\030\004 \001(\0162\013.PacketType\022\037\n\007content\030\005 \001(\0132\016" +
-      ".PacketContent*A\n\nPacketType\022\021\n\rAppRever" +
-      "seMsg\020\000\022\020\n\014AppSystemMsg\020\001\022\016\n\nAppChatMsg\020" +
-      "\002B\036\n\017me.leoyuu.protoB\013BasePacketsb\006proto" +
-      "3"
+      "\n\nbase.proto\032\tsys.proto\032\nchat.proto\032\nuse" +
+      "r.proto\"^\n\rPacketContent\022\027\n\006sysMsg\030\001 \001(\013" +
+      "2\007.SysMsg\022\031\n\007chatMsg\030\002 \001(\0132\010.ChatMsg\022\031\n\007" +
+      "userMsg\030\003 \001(\0132\010.UserMsg\"l\n\006Packet\022\013\n\003seq" +
+      "\030\001 \001(\005\022\014\n\004code\030\002 \001(\005\022\013\n\003msg\030\003 \001(\t\022\031\n\004typ" +
+      "e\030\004 \001(\0162\013.PacketType\022\037\n\007content\030\005 \001(\0132\016." +
+      "PacketContent*Q\n\nPacketType\022\021\n\rAppRevers" +
+      "eMsg\020\000\022\020\n\014AppSystemMsg\020\001\022\016\n\nAppChatMsg\020\002" +
+      "\022\016\n\nAppUserMsg\020\003B\036\n\017me.leoyuu.protoB\013Bas" +
+      "ePacketsb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1832,13 +2036,14 @@ public final class BasePackets {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           me.leoyuu.proto.SystemPackets.getDescriptor(),
           me.leoyuu.proto.ChatPackets.getDescriptor(),
+          me.leoyuu.proto.UserPackets.getDescriptor(),
         }, assigner);
     internal_static_PacketContent_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_PacketContent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PacketContent_descriptor,
-        new java.lang.String[] { "SysMsg", "ChatMsg", });
+        new java.lang.String[] { "SysMsg", "ChatMsg", "UserMsg", });
     internal_static_Packet_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Packet_fieldAccessorTable = new
@@ -1847,6 +2052,7 @@ public final class BasePackets {
         new java.lang.String[] { "Seq", "Code", "Msg", "Type", "Content", });
     me.leoyuu.proto.SystemPackets.getDescriptor();
     me.leoyuu.proto.ChatPackets.getDescriptor();
+    me.leoyuu.proto.UserPackets.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

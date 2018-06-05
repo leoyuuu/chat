@@ -2,10 +2,12 @@ package me.leoyuu.server.chat
 
 import me.leoyuu.proto.BasePackets
 import me.leoyuu.proto.SystemPackets
+import me.leoyuu.proto.UserPackets
 import me.leoyuu.proto.helper.ProtoServerPktHelper
 import me.leoyuu.proto.helper.ProtoPktIoHelper
 import me.leoyuu.server.Printer
 import me.leoyuu.server.chat.clients.ClientsManager
+import me.leoyuu.server.entity.User
 import me.leoyuu.util.Logger
 import me.leoyuu.util.ThreadUtil
 import java.io.IOException
@@ -19,7 +21,7 @@ class ClientHandler(private val skt: Socket) : Runnable {
     private var initSuccess = false
     private var running = false
     private var bound = false
-    var uid:Int = 0
+    lateinit var user: User
     private set
 
     init {
@@ -113,14 +115,14 @@ class ClientHandler(private val skt: Socket) : Runnable {
 
     private fun checkBindInfo(bindMsg: SystemPackets.SysBind, seq:Int):BasePackets.Packet {
         return when {
-            ClientsManager.contains(bindMsg.uid) -> {
+            ClientsManager.contains(bindMsg.user.uid) -> {
                 ProtoServerPktHelper.baseErrRspPkt(seq, "user online")
             }
-            bindMsg.sid.isEmpty() -> {
+            bindMsg.user.sid.isEmpty() -> {
                 ProtoServerPktHelper.baseErrRspPkt(seq, "Authentication Failed")
             }
             else -> {
-                uid = bindMsg.uid
+                user = transform(bindMsg.user)
                 bound = true
                 addSelf()
                 ProtoServerPktHelper.bindOkRspPkt(seq, 3000)
@@ -130,10 +132,16 @@ class ClientHandler(private val skt: Socket) : Runnable {
 
 
     private fun removeSelf() {
-        ClientsManager.remove(uid)
+        ClientsManager.remove(user.uid)
     }
 
     private fun addSelf() {
         ClientsManager.put(this)
+    }
+
+    companion object {
+        private fun transform(userInfo: UserPackets.UserInfo):User {
+            return User(userInfo.uid, if (userInfo.sid == null) "" else userInfo.sid, if (userInfo.name == null) "无名大侠" else userInfo.name)
+        }
     }
 }

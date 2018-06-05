@@ -126,19 +126,17 @@ public final class SystemPackets {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int32 uid = 1;</code>
+     * <code>optional .UserInfo user = 1;</code>
      */
-    int getUid();
-
+    boolean hasUser();
     /**
-     * <code>optional string sid = 2;</code>
+     * <code>optional .UserInfo user = 1;</code>
      */
-    java.lang.String getSid();
+    me.leoyuu.proto.UserPackets.UserInfo getUser();
     /**
-     * <code>optional string sid = 2;</code>
+     * <code>optional .UserInfo user = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getSidBytes();
+    me.leoyuu.proto.UserPackets.UserInfoOrBuilder getUserOrBuilder();
   }
   /**
    * Protobuf type {@code SysBind}
@@ -152,8 +150,6 @@ public final class SystemPackets {
       super(builder);
     }
     private SysBind() {
-      uid_ = 0;
-      sid_ = "";
     }
 
     @java.lang.Override
@@ -181,15 +177,17 @@ public final class SystemPackets {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              me.leoyuu.proto.UserPackets.UserInfo.Builder subBuilder = null;
+              if (user_ != null) {
+                subBuilder = user_.toBuilder();
+              }
+              user_ = input.readMessage(me.leoyuu.proto.UserPackets.UserInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(user_);
+                user_ = subBuilder.buildPartial();
+              }
 
-              uid_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              sid_ = s;
               break;
             }
           }
@@ -215,47 +213,25 @@ public final class SystemPackets {
               me.leoyuu.proto.SystemPackets.SysBind.class, me.leoyuu.proto.SystemPackets.SysBind.Builder.class);
     }
 
-    public static final int UID_FIELD_NUMBER = 1;
-    private int uid_;
+    public static final int USER_FIELD_NUMBER = 1;
+    private me.leoyuu.proto.UserPackets.UserInfo user_;
     /**
-     * <code>optional int32 uid = 1;</code>
+     * <code>optional .UserInfo user = 1;</code>
      */
-    public int getUid() {
-      return uid_;
-    }
-
-    public static final int SID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object sid_;
-    /**
-     * <code>optional string sid = 2;</code>
-     */
-    public java.lang.String getSid() {
-      java.lang.Object ref = sid_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        sid_ = s;
-        return s;
-      }
+    public boolean hasUser() {
+      return user_ != null;
     }
     /**
-     * <code>optional string sid = 2;</code>
+     * <code>optional .UserInfo user = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getSidBytes() {
-      java.lang.Object ref = sid_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        sid_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public me.leoyuu.proto.UserPackets.UserInfo getUser() {
+      return user_ == null ? me.leoyuu.proto.UserPackets.UserInfo.getDefaultInstance() : user_;
+    }
+    /**
+     * <code>optional .UserInfo user = 1;</code>
+     */
+    public me.leoyuu.proto.UserPackets.UserInfoOrBuilder getUserOrBuilder() {
+      return getUser();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -270,11 +246,8 @@ public final class SystemPackets {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (uid_ != 0) {
-        output.writeInt32(1, uid_);
-      }
-      if (!getSidBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sid_);
+      if (user_ != null) {
+        output.writeMessage(1, getUser());
       }
     }
 
@@ -283,12 +256,9 @@ public final class SystemPackets {
       if (size != -1) return size;
 
       size = 0;
-      if (uid_ != 0) {
+      if (user_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, uid_);
-      }
-      if (!getSidBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sid_);
+          .computeMessageSize(1, getUser());
       }
       memoizedSize = size;
       return size;
@@ -306,10 +276,11 @@ public final class SystemPackets {
       me.leoyuu.proto.SystemPackets.SysBind other = (me.leoyuu.proto.SystemPackets.SysBind) obj;
 
       boolean result = true;
-      result = result && (getUid()
-          == other.getUid());
-      result = result && getSid()
-          .equals(other.getSid());
+      result = result && (hasUser() == other.hasUser());
+      if (hasUser()) {
+        result = result && getUser()
+            .equals(other.getUser());
+      }
       return result;
     }
 
@@ -320,10 +291,10 @@ public final class SystemPackets {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + UID_FIELD_NUMBER;
-      hash = (53 * hash) + getUid();
-      hash = (37 * hash) + SID_FIELD_NUMBER;
-      hash = (53 * hash) + getSid().hashCode();
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -442,10 +413,12 @@ public final class SystemPackets {
       }
       public Builder clear() {
         super.clear();
-        uid_ = 0;
-
-        sid_ = "";
-
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
         return this;
       }
 
@@ -468,8 +441,11 @@ public final class SystemPackets {
 
       public me.leoyuu.proto.SystemPackets.SysBind buildPartial() {
         me.leoyuu.proto.SystemPackets.SysBind result = new me.leoyuu.proto.SystemPackets.SysBind(this);
-        result.uid_ = uid_;
-        result.sid_ = sid_;
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -511,12 +487,8 @@ public final class SystemPackets {
 
       public Builder mergeFrom(me.leoyuu.proto.SystemPackets.SysBind other) {
         if (other == me.leoyuu.proto.SystemPackets.SysBind.getDefaultInstance()) return this;
-        if (other.getUid() != 0) {
-          setUid(other.getUid());
-        }
-        if (!other.getSid().isEmpty()) {
-          sid_ = other.sid_;
-          onChanged();
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
         }
         onChanged();
         return this;
@@ -544,99 +516,121 @@ public final class SystemPackets {
         return this;
       }
 
-      private int uid_ ;
+      private me.leoyuu.proto.UserPackets.UserInfo user_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          me.leoyuu.proto.UserPackets.UserInfo, me.leoyuu.proto.UserPackets.UserInfo.Builder, me.leoyuu.proto.UserPackets.UserInfoOrBuilder> userBuilder_;
       /**
-       * <code>optional int32 uid = 1;</code>
+       * <code>optional .UserInfo user = 1;</code>
        */
-      public int getUid() {
-        return uid_;
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
       }
       /**
-       * <code>optional int32 uid = 1;</code>
+       * <code>optional .UserInfo user = 1;</code>
        */
-      public Builder setUid(int value) {
-        
-        uid_ = value;
-        onChanged();
-        return this;
+      public me.leoyuu.proto.UserPackets.UserInfo getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? me.leoyuu.proto.UserPackets.UserInfo.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
       }
       /**
-       * <code>optional int32 uid = 1;</code>
+       * <code>optional .UserInfo user = 1;</code>
        */
-      public Builder clearUid() {
-        
-        uid_ = 0;
-        onChanged();
-        return this;
-      }
+      public Builder setUser(me.leoyuu.proto.UserPackets.UserInfo value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
+        }
 
-      private java.lang.Object sid_ = "";
+        return this;
+      }
       /**
-       * <code>optional string sid = 2;</code>
+       * <code>optional .UserInfo user = 1;</code>
        */
-      public java.lang.String getSid() {
-        java.lang.Object ref = sid_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          sid_ = s;
-          return s;
+      public Builder setUser(
+          me.leoyuu.proto.UserPackets.UserInfo.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          userBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .UserInfo user = 1;</code>
+       */
+      public Builder mergeUser(me.leoyuu.proto.UserPackets.UserInfo value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+              me.leoyuu.proto.UserPackets.UserInfo.newBuilder(user_).mergeFrom(value).buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
+        } else {
+          userBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .UserInfo user = 1;</code>
+       */
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .UserInfo user = 1;</code>
+       */
+      public me.leoyuu.proto.UserPackets.UserInfo.Builder getUserBuilder() {
+        
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .UserInfo user = 1;</code>
+       */
+      public me.leoyuu.proto.UserPackets.UserInfoOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null ?
+              me.leoyuu.proto.UserPackets.UserInfo.getDefaultInstance() : user_;
         }
       }
       /**
-       * <code>optional string sid = 2;</code>
+       * <code>optional .UserInfo user = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getSidBytes() {
-        java.lang.Object ref = sid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          sid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          me.leoyuu.proto.UserPackets.UserInfo, me.leoyuu.proto.UserPackets.UserInfo.Builder, me.leoyuu.proto.UserPackets.UserInfoOrBuilder> 
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              me.leoyuu.proto.UserPackets.UserInfo, me.leoyuu.proto.UserPackets.UserInfo.Builder, me.leoyuu.proto.UserPackets.UserInfoOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
         }
-      }
-      /**
-       * <code>optional string sid = 2;</code>
-       */
-      public Builder setSid(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        sid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string sid = 2;</code>
-       */
-      public Builder clearSid() {
-        
-        sid_ = getDefaultInstance().getSid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string sid = 2;</code>
-       */
-      public Builder setSidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        sid_ = value;
-        onChanged();
-        return this;
+        return userBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2551,15 +2545,15 @@ public final class SystemPackets {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\tsys.proto\"#\n\007SysBind\022\013\n\003uid\030\001 \001(\005\022\013\n\003s" +
-      "id\030\002 \001(\t\"\'\n\nSysBindRsp\022\031\n\021heartBeatInter" +
-      "val\030\001 \001(\005\"E\n\rSysMsgContent\022\026\n\004bind\030\001 \001(\013" +
-      "2\010.SysBind\022\034\n\007bindRsp\030\002 \001(\0132\013.SysBindRsp" +
-      "\"D\n\006SysMsg\022\031\n\004type\030\001 \001(\0162\013.SysMsgType\022\037\n" +
-      "\007content\030\002 \001(\0132\016.SysMsgContent*B\n\nSysMsg" +
-      "Type\022\021\n\rSysReverseMsg\020\000\022\016\n\nSysBindMsg\020\001\022" +
-      "\021\n\rSysBindRspMsg\020\002B \n\017me.leoyuu.protoB\rS" +
-      "ystemPacketsb\006proto3"
+      "\n\tsys.proto\032\nuser.proto\"\"\n\007SysBind\022\027\n\004us" +
+      "er\030\001 \001(\0132\t.UserInfo\"\'\n\nSysBindRsp\022\031\n\021hea" +
+      "rtBeatInterval\030\001 \001(\005\"E\n\rSysMsgContent\022\026\n" +
+      "\004bind\030\001 \001(\0132\010.SysBind\022\034\n\007bindRsp\030\002 \001(\0132\013" +
+      ".SysBindRsp\"D\n\006SysMsg\022\031\n\004type\030\001 \001(\0162\013.Sy" +
+      "sMsgType\022\037\n\007content\030\002 \001(\0132\016.SysMsgConten" +
+      "t*B\n\nSysMsgType\022\021\n\rSysReverseMsg\020\000\022\016\n\nSy" +
+      "sBindMsg\020\001\022\021\n\rSysBindRspMsg\020\002B \n\017me.leoy" +
+      "uu.protoB\rSystemPacketsb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2572,13 +2566,14 @@ public final class SystemPackets {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          me.leoyuu.proto.UserPackets.getDescriptor(),
         }, assigner);
     internal_static_SysBind_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_SysBind_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SysBind_descriptor,
-        new java.lang.String[] { "Uid", "Sid", });
+        new java.lang.String[] { "User", });
     internal_static_SysBindRsp_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_SysBindRsp_fieldAccessorTable = new
@@ -2597,6 +2592,7 @@ public final class SystemPackets {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SysMsg_descriptor,
         new java.lang.String[] { "Type", "Content", });
+    me.leoyuu.proto.UserPackets.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -8,7 +8,7 @@ object ClientsManager {
     fun contains(uid: Int) = clients.containsKey(uid)
 
     fun put(handler: ClientHandler) {
-        clients[handler.uid] = handler
+        clients[handler.user.uid] = handler
     }
 
     fun remove(uid:Int) {

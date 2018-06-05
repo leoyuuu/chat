@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_package = "me.leoyuu.proto";
+option java_outer_classname = "UserPackets";
+
+
+message UserInfo {
+    int32 uid = 1;
+    string sid = 2;
+    string name = 3;
+}
+
+enum UserReqType {
+    UserReversedReq = 0;
+    changeInfo      = 1;
+    getUsersReq     = 2;
+}
+
+message UserInfoChangeReq {
+    UserInfo info = 1;
+}
+
+message UserGetReq {
+    // normally this should use http method
+}
+
+message UserGetRsp {
+    repeated UserInfo users = 1;
+}
+
+message UserReqContent {
+    UserInfoChangeReq changeReq = 1;
+    UserGetReq getUserReq = 2;
+}
+
+message UserRspContent {
+    // UserInfoChangeReq -> base rsp;
+    UserGetRsp getUserRsp = 2;
+}
+
+message UserMsg{
+    UserReqType reqType = 1;
+}

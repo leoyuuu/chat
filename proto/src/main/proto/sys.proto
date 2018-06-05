@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "user.proto";
+
 option java_package = "me.leoyuu.proto";
 option java_outer_classname = "SystemPackets";
 
@@ -11,8 +13,7 @@ enum SysMsgType {
 
 
 message SysBind {
-    int32  uid = 1;
-    string sid = 2;
+    UserInfo user = 1;
 }
 
 message SysBindRsp {

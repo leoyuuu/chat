@@ -11,7 +11,7 @@ import me.leoyuu.proto.ChatPackets.ChatMsgType.*
 import me.leoyuu.proto.ChatPackets.*
 import me.leoyuu.proto.SystemPackets.*
 import me.leoyuu.proto.SystemPackets.SysMsgType.*
-
+import me.leoyuu.proto.helper.ProtoBasePktHelper.user
 
 object ProtoClientPktHelper {
     private var seq = 0
@@ -28,8 +28,8 @@ object ProtoClientPktHelper {
     fun buildChatSharePkt(toUid: Int, fromUid: Int, json:String="", title:String, iconUrl:String, desc:String, url:String, gid:Int=0) =
             buildChatPkt(chatMsgBuilder(toUid, fromUid, gid, json, ChatShareMsg).setExtra(chatShareExtra(title, iconUrl, desc, url)).build())
 
-    fun buildBindPacket(uid: Int, sid: String): Packet {
-        val bind = SysBind.newBuilder().setSid(sid).setUid(uid).build()
+    fun buildBindPacket(uid: Int, sid: String, name:String): Packet {
+        val bind = SysBind.newBuilder().setUser(user(uid, name, sid)).build()
         return basePkt(AppSystemMsg, baseSysPktContent(SysBindMsg, SysMsgContent.newBuilder().setBind(bind).build()))
     }
 
