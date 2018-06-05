@@ -29,14 +29,35 @@ val sendCallback = object :SendCallback {
     }
 }
 
-val config = ChatClientConfig("118.190.98.99", 9909, receiver)
+val config = ChatClientConfig("127.0.0.1", 9909, receiver)
 val client = ChatClient()
 var uid:Int = 0
 var sid = "123456"
 var toUid:Int = 0
 
+fun reqUsers() {
+    client.sendPacket(ProtoClientPktHelper.buildReqUsersPkt(), object : SendCallback {
+        override fun onFailed(msg: String, packet: BasePackets.Packet?) {
+            showMsg(msg)
+        }
+
+        override fun onSuccess(packet: BasePackets.Packet) {
+            showMsg(packet)
+        }
+    })
+}
+
 fun bindSelf() {
-    client.sendPacket(ProtoClientPktHelper.buildBindPacket(uid, sid, "$uid"), sendCallback)
+    client.sendPacket(ProtoClientPktHelper.buildBindPacket(uid, sid, "$uid"), object : SendCallback {
+        override fun onFailed(msg: String, packet: BasePackets.Packet?) {
+            showMsg("bind failed $msg")
+        }
+
+        override fun onSuccess(packet: BasePackets.Packet) {
+            showMsg("bind success")
+            reqUsers()
+        }
+    })
 }
 
 fun startChat() {

@@ -1,8 +1,11 @@
 package me.leoyuu.proto.helper
 
 import me.leoyuu.proto.BasePackets
+import me.leoyuu.proto.BasePackets.PacketType.AppSystemMsg
+import me.leoyuu.proto.BasePackets.PacketType.AppUserMsg
 import me.leoyuu.proto.SystemPackets
-import me.leoyuu.proto.BasePackets.PacketType.*
+import me.leoyuu.proto.UserPackets
+import me.leoyuu.proto.helper.ProtoBasePktHelper.user
 
 object ProtoServerPktHelper {
 
@@ -11,6 +14,18 @@ object ProtoServerPktHelper {
         val content = sysContentBuilder.setBindRsp(bindRsp).build()
         val sysMsg = SystemPackets.SysMsg.newBuilder().setContent(content).setType(SystemPackets.SysMsgType.SysBindRspMsg)
         return basePkt(AppSystemMsg, pktContentBuilder.setSysMsg(sysMsg).build(), seq, CODE_OK)
+    }
+
+    fun getUsersReqPkt(uidList: List<Int>, nameList: List<String>, seq: Int): BasePackets.Packet {
+        val userRspBuilder = UserPackets.UserGetRsp.newBuilder()
+        (0 until uidList.size).forEach {
+            userRspBuilder.addUsers(user(uidList[it], nameList[it]))
+        }
+        val userRsp = userRspBuilder.build()
+        val rspContent = UserPackets.UserRspContent.newBuilder().setGetUserRsp(userRsp).build()
+        return basePkt(AppUserMsg, pktContentBuilder.setUserMsg(UserPackets.UserMsg.newBuilder()
+                .setReqType(UserPackets.UserReqType.getUsersReq)
+                .setRspContent(rspContent).build()).build(), seq, CODE_OK)
     }
 
     fun baseOkRspPkt(seq:Int) :BasePackets.Packet =

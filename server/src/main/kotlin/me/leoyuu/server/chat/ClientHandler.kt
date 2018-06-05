@@ -3,8 +3,8 @@ package me.leoyuu.server.chat
 import me.leoyuu.proto.BasePackets
 import me.leoyuu.proto.SystemPackets
 import me.leoyuu.proto.UserPackets
-import me.leoyuu.proto.helper.ProtoServerPktHelper
 import me.leoyuu.proto.helper.ProtoPktIoHelper
+import me.leoyuu.proto.helper.ProtoServerPktHelper
 import me.leoyuu.server.Printer
 import me.leoyuu.server.chat.clients.ClientsManager
 import me.leoyuu.server.entity.User
@@ -105,7 +105,10 @@ class ClientHandler(private val skt: Socket) : Runnable {
     private fun handleReq(packet: BasePackets.Packet) :BasePackets.Packet{
         return when (packet.type) {
             BasePackets.PacketType.AppChatMsg -> {
-                ChatMsgHelper.handleChatMsg(packet)
+                ChatMsgHelper.handleChatMsg(user.uid, packet)
+            }
+            BasePackets.PacketType.AppUserMsg -> {
+                UserMsgHelper.handleUserMsg(user.uid, packet)
             }
             else -> {
                 ProtoServerPktHelper.baseErrRspPkt(packet.seq, "unsupported msg type" )
@@ -132,7 +135,7 @@ class ClientHandler(private val skt: Socket) : Runnable {
 
 
     private fun removeSelf() {
-        ClientsManager.remove(user.uid)
+        ClientsManager.remove(this)
     }
 
     private fun addSelf() {

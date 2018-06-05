@@ -3,13 +3,17 @@ package me.leoyuu.server.chat
 import me.leoyuu.proto.BasePackets
 import me.leoyuu.proto.ChatPackets
 import me.leoyuu.proto.helper.ProtoServerPktHelper
+import me.leoyuu.proto.helper.ProtoServerPktHelper.CODE_ERR
 import me.leoyuu.server.Printer
 import me.leoyuu.server.chat.clients.ClientsManager
 
 object ChatMsgHelper {
 
-    fun handleChatMsg(packet:BasePackets.Packet):BasePackets.Packet {
+    fun handleChatMsg(uid: Int, packet: BasePackets.Packet): BasePackets.Packet {
         val p = packet.content.chatMsg
+        if (p.fromUid != uid) {
+            return ProtoServerPktHelper.baseErrRspPkt(CODE_ERR, "error uid")
+        }
         val res = if (p.gid > 0) {
             sendToGroup(p, packet)
         } else {

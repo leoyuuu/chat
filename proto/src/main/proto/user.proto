@@ -40,4 +40,6 @@ message UserRspContent {
 
 message UserMsg{
     UserReqType reqType = 1;
+    UserReqContent reqContent = 2;
+    UserRspContent rspContent = 3;
 }
