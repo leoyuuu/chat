@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.layout_msgs.*
 import me.leoyuu.chat.apk.module.data.msg.MsgUpdateEvent
 
 import me.leoyuu.chat.apk.R

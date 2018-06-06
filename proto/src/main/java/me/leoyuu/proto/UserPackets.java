@@ -4104,7 +4104,6 @@ public final class UserPackets {
         makeExtensionsImmutable();
       }
     }
-
     public static final int REQTYPE_FIELD_NUMBER = 1;
     public static final int REQCONTENT_FIELD_NUMBER = 2;
     public static final int RSPCONTENT_FIELD_NUMBER = 3;
@@ -4592,21 +4591,6 @@ public final class UserPackets {
       /**
        * <code>optional .UserReqContent reqContent = 2;</code>
        */
-      public Builder clearReqContent() {
-        if (reqContentBuilder_ == null) {
-          reqContent_ = null;
-          onChanged();
-        } else {
-          reqContent_ = null;
-          reqContentBuilder_ = null;
-        }
-
-        return this;
-      }
-
-      /**
-       * <code>optional .UserReqContent reqContent = 2;</code>
-       */
       public Builder setReqContent(
               me.leoyuu.proto.UserPackets.UserReqContent.Builder builderForValue) {
         if (reqContentBuilder_ == null) {
@@ -4633,6 +4617,21 @@ public final class UserPackets {
           onChanged();
         } else {
           reqContentBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+
+      /**
+       * <code>optional .UserReqContent reqContent = 2;</code>
+       */
+      public Builder clearReqContent() {
+        if (reqContentBuilder_ == null) {
+          reqContent_ = null;
+          onChanged();
+        } else {
+          reqContent_ = null;
+          reqContentBuilder_ = null;
         }
 
         return this;
@@ -4789,7 +4788,6 @@ public final class UserPackets {
         }
         return rspContentBuilder_;
       }
-
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;

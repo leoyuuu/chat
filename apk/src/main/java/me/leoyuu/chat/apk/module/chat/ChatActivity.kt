@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.activity_chat.*
 import me.leoyuu.chat.apk.module.data.msg.MsgUpdateEvent
 import me.leoyuu.chat.apk.R
 import me.leoyuu.chat.apk.module.data.msg.MsgManager
