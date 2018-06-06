@@ -3866,6 +3866,83 @@ public final class UserPackets {
 
   }
 
+  public interface UserMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:UserMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .UserReqType reqType = 1;</code>
+     */
+    int getReqTypeValue();
+    /**
+     * <code>optional .UserReqType reqType = 1;</code>
+     */
+    me.leoyuu.proto.UserPackets.UserReqType getReqType();
+
+    /**
+     * <code>optional .UserReqContent reqContent = 2;</code>
+     */
+    boolean hasReqContent();
+    /**
+     * <code>optional .UserReqContent reqContent = 2;</code>
+     */
+    me.leoyuu.proto.UserPackets.UserReqContent getReqContent();
+    /**
+     * <code>optional .UserReqContent reqContent = 2;</code>
+     */
+    me.leoyuu.proto.UserPackets.UserReqContentOrBuilder getReqContentOrBuilder();
+
+    /**
+     * <code>optional .UserRspContent rspContent = 3;</code>
+     */
+    boolean hasRspContent();
+    /**
+     * <code>optional .UserRspContent rspContent = 3;</code>
+     */
+    me.leoyuu.proto.UserPackets.UserRspContent getRspContent();
+    /**
+     * <code>optional .UserRspContent rspContent = 3;</code>
+     */
+    me.leoyuu.proto.UserPackets.UserRspContentOrBuilder getRspContentOrBuilder();
+  }
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_UserInfo_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_UserInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_UserInfoChangeReq_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_UserInfoChangeReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_UserGetReq_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_UserGetReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_UserGetRsp_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_UserGetRsp_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_UserReqContent_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_UserReqContent_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_UserRspContent_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_UserRspContent_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_UserMsg_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_UserMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.FileDescriptor
+          descriptor;
+
   static {
     java.lang.String[] descriptorData = {
             "\n\nuser.proto\"2\n\010UserInfo\022\013\n\003uid\030\001 \001(\005\022\013\n" +
@@ -3938,93 +4015,11 @@ public final class UserPackets {
             internal_static_UserMsg_descriptor,
             new java.lang.String[]{"ReqType", "ReqContent", "RspContent",});
   }
-  public interface UserMsgOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:UserMsg)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional .UserReqType reqType = 1;</code>
-     */
-    int getReqTypeValue();
-    /**
-     * <code>optional .UserReqType reqType = 1;</code>
-     */
-    me.leoyuu.proto.UserPackets.UserReqType getReqType();
-
-    /**
-     * <code>optional .UserReqContent reqContent = 2;</code>
-     */
-    boolean hasReqContent();
-
-    /**
-     * <code>optional .UserReqContent reqContent = 2;</code>
-     */
-    me.leoyuu.proto.UserPackets.UserReqContent getReqContent();
-
-    /**
-     * <code>optional .UserReqContent reqContent = 2;</code>
-     */
-    me.leoyuu.proto.UserPackets.UserReqContentOrBuilder getReqContentOrBuilder();
-
-    /**
-     * <code>optional .UserRspContent rspContent = 3;</code>
-     */
-    boolean hasRspContent();
-
-    /**
-     * <code>optional .UserRspContent rspContent = 3;</code>
-     */
-    me.leoyuu.proto.UserPackets.UserRspContent getRspContent();
-
-    /**
-     * <code>optional .UserRspContent rspContent = 3;</code>
-     */
-    me.leoyuu.proto.UserPackets.UserRspContentOrBuilder getRspContentOrBuilder();
-  }
-
-  private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_UserInfo_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_UserInfo_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_UserInfoChangeReq_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_UserInfoChangeReq_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_UserGetReq_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_UserGetReq_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_UserGetRsp_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_UserGetRsp_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_UserReqContent_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_UserReqContent_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_UserRspContent_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_UserRspContent_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_UserMsg_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_UserMsg_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
   getDescriptor() {
     return descriptor;
   }
-
-  private static com.google.protobuf.Descriptors.FileDescriptor
-          descriptor;
 
   /**
    * Protobuf type {@code UserMsg}
@@ -4046,42 +4041,6 @@ public final class UserPackets {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-
-    public static final int REQCONTENT_FIELD_NUMBER = 2;
-
-    public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-      return me.leoyuu.proto.UserPackets.internal_static_UserMsg_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-      return me.leoyuu.proto.UserPackets.internal_static_UserMsg_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                      me.leoyuu.proto.UserPackets.UserMsg.class, me.leoyuu.proto.UserPackets.UserMsg.Builder.class);
-    }
-
-    public static final int REQTYPE_FIELD_NUMBER = 1;
-    private int reqType_;
-
-    /**
-     * <code>optional .UserReqType reqType = 1;</code>
-     */
-    public int getReqTypeValue() {
-      return reqType_;
-    }
-
-    /**
-     * <code>optional .UserReqType reqType = 1;</code>
-     */
-    public me.leoyuu.proto.UserPackets.UserReqType getReqType() {
-      me.leoyuu.proto.UserPackets.UserReqType result = me.leoyuu.proto.UserPackets.UserReqType.valueOf(reqType_);
-      return result == null ? me.leoyuu.proto.UserPackets.UserReqType.UNRECOGNIZED : result;
-    }
-
-    public static final int RSPCONTENT_FIELD_NUMBER = 3;
-    private me.leoyuu.proto.UserPackets.UserReqContent reqContent_;
-    private me.leoyuu.proto.UserPackets.UserRspContent rspContent_;
     private UserMsg(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4146,20 +4105,36 @@ public final class UserPackets {
       }
     }
 
+    public static final int REQTYPE_FIELD_NUMBER = 1;
+    public static final int REQCONTENT_FIELD_NUMBER = 2;
+    public static final int RSPCONTENT_FIELD_NUMBER = 3;
+    private int reqType_;
+    private me.leoyuu.proto.UserPackets.UserReqContent reqContent_;
+    private me.leoyuu.proto.UserPackets.UserRspContent rspContent_;
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+    getDescriptor() {
+      return me.leoyuu.proto.UserPackets.internal_static_UserMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internalGetFieldAccessorTable() {
+      return me.leoyuu.proto.UserPackets.internal_static_UserMsg_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                      me.leoyuu.proto.UserPackets.UserMsg.class, me.leoyuu.proto.UserPackets.UserMsg.Builder.class);
+    }
     /**
      * <code>optional .UserReqContent reqContent = 2;</code>
      */
     public boolean hasReqContent() {
       return reqContent_ != null;
     }
-
     /**
      * <code>optional .UserReqContent reqContent = 2;</code>
      */
     public me.leoyuu.proto.UserPackets.UserReqContent getReqContent() {
       return reqContent_ == null ? me.leoyuu.proto.UserPackets.UserReqContent.getDefaultInstance() : reqContent_;
     }
-
     /**
      * <code>optional .UserReqContent reqContent = 2;</code>
      */
@@ -4168,19 +4143,31 @@ public final class UserPackets {
     }
 
     /**
+     * <code>optional .UserReqType reqType = 1;</code>
+     */
+    public int getReqTypeValue() {
+      return reqType_;
+    }
+
+    /**
+     * <code>optional .UserReqType reqType = 1;</code>
+     */
+    public me.leoyuu.proto.UserPackets.UserReqType getReqType() {
+      me.leoyuu.proto.UserPackets.UserReqType result = me.leoyuu.proto.UserPackets.UserReqType.valueOf(reqType_);
+      return result == null ? me.leoyuu.proto.UserPackets.UserReqType.UNRECOGNIZED : result;
+    }
+    /**
      * <code>optional .UserRspContent rspContent = 3;</code>
      */
     public boolean hasRspContent() {
       return rspContent_ != null;
     }
-
     /**
      * <code>optional .UserRspContent rspContent = 3;</code>
      */
     public me.leoyuu.proto.UserPackets.UserRspContent getRspContent() {
       return rspContent_ == null ? me.leoyuu.proto.UserPackets.UserRspContent.getDefaultInstance() : rspContent_;
     }
-
     /**
      * <code>optional .UserRspContent rspContent = 3;</code>
      */
@@ -4409,7 +4396,6 @@ public final class UserPackets {
         }
         return result;
       }
-
       private com.google.protobuf.SingleFieldBuilderV3<
               me.leoyuu.proto.UserPackets.UserReqContent, me.leoyuu.proto.UserPackets.UserReqContent.Builder, me.leoyuu.proto.UserPackets.UserReqContentOrBuilder> reqContentBuilder_;
 
@@ -4439,15 +4425,9 @@ public final class UserPackets {
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof me.leoyuu.proto.UserPackets.UserMsg) {
-          return mergeFrom((me.leoyuu.proto.UserPackets.UserMsg) other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
       private me.leoyuu.proto.UserPackets.UserRspContent rspContent_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              me.leoyuu.proto.UserPackets.UserRspContent, me.leoyuu.proto.UserPackets.UserRspContent.Builder, me.leoyuu.proto.UserPackets.UserRspContentOrBuilder> rspContentBuilder_;
 
       public final boolean isInitialized() {
         return true;
@@ -4493,30 +4473,6 @@ public final class UserPackets {
         me.leoyuu.proto.UserPackets.UserReqType result = me.leoyuu.proto.UserPackets.UserReqType.valueOf(reqType_);
         return result == null ? me.leoyuu.proto.UserPackets.UserReqType.UNRECOGNIZED : result;
       }
-      /**
-       * <code>optional .UserReqType reqType = 1;</code>
-       */
-      public Builder setReqType(me.leoyuu.proto.UserPackets.UserReqType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-
-        reqType_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional .UserReqType reqType = 1;</code>
-       */
-      public Builder clearReqType() {
-
-        reqType_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-              me.leoyuu.proto.UserPackets.UserRspContent, me.leoyuu.proto.UserPackets.UserRspContent.Builder, me.leoyuu.proto.UserPackets.UserRspContentOrBuilder> rspContentBuilder_;
 
       public Builder clear() {
         super.clear();
@@ -4554,6 +4510,15 @@ public final class UserPackets {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof me.leoyuu.proto.UserPackets.UserMsg) {
+          return mergeFrom((me.leoyuu.proto.UserPackets.UserMsg) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
       public Builder mergeFrom(me.leoyuu.proto.UserPackets.UserMsg other) {
         if (other == me.leoyuu.proto.UserPackets.UserMsg.getDefaultInstance()) return this;
         if (other.reqType_ != 0) {
@@ -4568,14 +4533,12 @@ public final class UserPackets {
         onChanged();
         return this;
       }
-
       /**
        * <code>optional .UserReqContent reqContent = 2;</code>
        */
       public boolean hasReqContent() {
         return reqContentBuilder_ != null || reqContent_ != null;
       }
-
       /**
        * <code>optional .UserReqContent reqContent = 2;</code>
        */
@@ -4585,6 +4548,60 @@ public final class UserPackets {
         } else {
           return reqContentBuilder_.getMessage();
         }
+      }
+      /**
+       * <code>optional .UserReqContent reqContent = 2;</code>
+       */
+      public Builder setReqContent(me.leoyuu.proto.UserPackets.UserReqContent value) {
+        if (reqContentBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          reqContent_ = value;
+          onChanged();
+        } else {
+          reqContentBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+
+      /**
+       * <code>optional .UserReqType reqType = 1;</code>
+       */
+      public Builder setReqType(me.leoyuu.proto.UserPackets.UserReqType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+
+        reqType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>optional .UserReqType reqType = 1;</code>
+       */
+      public Builder clearReqType() {
+
+        reqType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>optional .UserReqContent reqContent = 2;</code>
+       */
+      public Builder clearReqContent() {
+        if (reqContentBuilder_ == null) {
+          reqContent_ = null;
+          onChanged();
+        } else {
+          reqContent_ = null;
+          reqContentBuilder_ = null;
+        }
+
+        return this;
       }
 
       /**
@@ -4605,23 +4622,6 @@ public final class UserPackets {
       /**
        * <code>optional .UserReqContent reqContent = 2;</code>
        */
-      public Builder setReqContent(me.leoyuu.proto.UserPackets.UserReqContent value) {
-        if (reqContentBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          reqContent_ = value;
-          onChanged();
-        } else {
-          reqContentBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-
-      /**
-       * <code>optional .UserReqContent reqContent = 2;</code>
-       */
       public Builder mergeReqContent(me.leoyuu.proto.UserPackets.UserReqContent value) {
         if (reqContentBuilder_ == null) {
           if (reqContent_ != null) {
@@ -4633,21 +4633,6 @@ public final class UserPackets {
           onChanged();
         } else {
           reqContentBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-
-      /**
-       * <code>optional .UserReqContent reqContent = 2;</code>
-       */
-      public Builder clearReqContent() {
-        if (reqContentBuilder_ == null) {
-          reqContent_ = null;
-          onChanged();
-        } else {
-          reqContent_ = null;
-          reqContentBuilder_ = null;
         }
 
         return this;
@@ -4679,7 +4664,7 @@ public final class UserPackets {
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               me.leoyuu.proto.UserPackets.UserReqContent, me.leoyuu.proto.UserPackets.UserReqContent.Builder, me.leoyuu.proto.UserPackets.UserReqContentOrBuilder>
-      getReqContentFieldBuilder() {
+          getReqContentFieldBuilder() {
         if (reqContentBuilder_ == null) {
           reqContentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
                   me.leoyuu.proto.UserPackets.UserReqContent, me.leoyuu.proto.UserPackets.UserReqContent.Builder, me.leoyuu.proto.UserPackets.UserReqContentOrBuilder>(
@@ -4690,14 +4675,12 @@ public final class UserPackets {
         }
         return reqContentBuilder_;
       }
-
       /**
        * <code>optional .UserRspContent rspContent = 3;</code>
        */
       public boolean hasRspContent() {
         return rspContentBuilder_ != null || rspContent_ != null;
       }
-
       /**
        * <code>optional .UserRspContent rspContent = 3;</code>
        */
@@ -4708,22 +4691,6 @@ public final class UserPackets {
           return rspContentBuilder_.getMessage();
         }
       }
-
-      /**
-       * <code>optional .UserRspContent rspContent = 3;</code>
-       */
-      public Builder setRspContent(
-              me.leoyuu.proto.UserPackets.UserRspContent.Builder builderForValue) {
-        if (rspContentBuilder_ == null) {
-          rspContent_ = builderForValue.build();
-          onChanged();
-        } else {
-          rspContentBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-
       /**
        * <code>optional .UserRspContent rspContent = 3;</code>
        */
@@ -4744,6 +4711,20 @@ public final class UserPackets {
       /**
        * <code>optional .UserRspContent rspContent = 3;</code>
        */
+      public Builder setRspContent(
+              me.leoyuu.proto.UserPackets.UserRspContent.Builder builderForValue) {
+        if (rspContentBuilder_ == null) {
+          rspContent_ = builderForValue.build();
+          onChanged();
+        } else {
+          rspContentBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .UserRspContent rspContent = 3;</code>
+       */
       public Builder mergeRspContent(me.leoyuu.proto.UserPackets.UserRspContent value) {
         if (rspContentBuilder_ == null) {
           if (rspContent_ != null) {
@@ -4759,7 +4740,6 @@ public final class UserPackets {
 
         return this;
       }
-
       /**
        * <code>optional .UserRspContent rspContent = 3;</code>
        */
@@ -4774,7 +4754,6 @@ public final class UserPackets {
 
         return this;
       }
-
       /**
        * <code>optional .UserRspContent rspContent = 3;</code>
        */
@@ -4783,7 +4762,6 @@ public final class UserPackets {
         onChanged();
         return getRspContentFieldBuilder().getBuilder();
       }
-
       /**
        * <code>optional .UserRspContent rspContent = 3;</code>
        */
@@ -4795,13 +4773,12 @@ public final class UserPackets {
                   me.leoyuu.proto.UserPackets.UserRspContent.getDefaultInstance() : rspContent_;
         }
       }
-
       /**
        * <code>optional .UserRspContent rspContent = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               me.leoyuu.proto.UserPackets.UserRspContent, me.leoyuu.proto.UserPackets.UserRspContent.Builder, me.leoyuu.proto.UserPackets.UserRspContentOrBuilder>
-      getRspContentFieldBuilder() {
+          getRspContentFieldBuilder() {
         if (rspContentBuilder_ == null) {
           rspContentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
                   me.leoyuu.proto.UserPackets.UserRspContent, me.leoyuu.proto.UserPackets.UserRspContent.Builder, me.leoyuu.proto.UserPackets.UserRspContentOrBuilder>(
@@ -4814,12 +4791,12 @@ public final class UserPackets {
       }
 
       public final Builder setUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
 
       public final Builder mergeUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
       }
 

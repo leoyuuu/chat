@@ -29,10 +29,11 @@ val sendCallback = object :SendCallback {
     }
 }
 
-val config = ChatClientConfig("127.0.0.1", 9909, receiver)
+lateinit var config: ChatClientConfig
 val client = ChatClient()
 var uid:Int = 0
 var sid = "123456"
+var name = ""
 var toUid:Int = 0
 
 fun reqUsers() {
@@ -48,7 +49,7 @@ fun reqUsers() {
 }
 
 fun bindSelf() {
-    client.sendPacket(ProtoClientPktHelper.buildBindPacket(uid, sid, "$uid"), object : SendCallback {
+    client.sendPacket(ProtoClientPktHelper.buildBindPacket(uid, sid, name), object : SendCallback {
         override fun onFailed(msg: String, packet: BasePackets.Packet?) {
             showMsg("bind failed $msg")
         }
@@ -85,14 +86,15 @@ fun send(msg:String) {
 }
 
 fun main(args:Array<String>) {
-    showMsg("I am a console chat client")
-    showMsg("this is just a simple implication")
-    client.config = config
-    if (args.isEmpty()) {
-        uid = System.currentTimeMillis().toInt()
-    } else {
-        uid = args[0].toInt()
+    if (args.size != 4) {
+        showMsg("use ip port id name as the arguments")
+        return
     }
+    config = ChatClientConfig(args[0], args[1].toInt(), receiver)
+    uid = args[2].toInt()
+    name = args[3]
+
+    client.config = config
     client.connect(object : Callback {
         override fun onFailed(msg: String) {
             showMsg(msg)
