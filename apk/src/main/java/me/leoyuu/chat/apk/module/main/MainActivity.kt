@@ -1,4 +1,4 @@
-package me.leoyuu.chat.apk.main
+package me.leoyuu.chat.apk.module.main
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView

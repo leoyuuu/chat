@@ -1,7 +1,4 @@
-package me.leoyuu.chat.apk
-
-
-import me.leoyuu.chat.apk.util.RxBus
+package me.leoyuu.chat.apk.module.event
 
 /**
  * date 2018/6/5
@@ -11,6 +8,6 @@ import me.leoyuu.chat.apk.util.RxBus
  */
 object EventDispatcher {
     fun publishEvent(event: Any) {
-        RxBus.post(event)
+        EventHub.post(event)
     }
 }

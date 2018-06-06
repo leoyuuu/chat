@@ -1,5 +1,6 @@
-package me.leoyuu.chat.apk.client
+package me.leoyuu.chat.apk.module.data.user
 
+import me.leoyuu.chat.apk.module.data.net.PacketSender
 import me.leoyuu.chat.base.callback.SendCallback
 import me.leoyuu.proto.BasePackets
 

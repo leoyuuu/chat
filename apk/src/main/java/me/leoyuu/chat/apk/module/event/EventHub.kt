@@ -1,4 +1,4 @@
-package me.leoyuu.chat.apk.util
+package me.leoyuu.chat.apk.module.event
 
 import android.os.Handler
 import android.os.Looper
@@ -10,8 +10,8 @@ import java.util.concurrent.Executor
  *
  * @author leoyuu
  */
-object RxBus {
-    private val registers = mutableListOf<RxRegister<*>>()
+object EventHub {
+    private val registers = mutableListOf<EventContractor<*>>()
     private val handler = Handler(Looper.getMainLooper())
     private val e = Executor { handler.post(it) }
 
@@ -21,11 +21,11 @@ object RxBus {
         }
     }
 
-    fun <T> register(clazz: Class<T>, observer: RxObserver<T>) {
-        registers.add(RxRegister(clazz, observer))
+    fun <T> register(clazz: Class<T>, observer: EventObserver<T>) {
+        registers.add(EventContractor(clazz, observer))
     }
 
-    fun <T> unregister(observer: RxObserver<T>) {
+    fun <T> unregister(observer: EventObserver<T>) {
         val itr = registers.iterator()
         while (itr.hasNext()) {
             val r = itr.next()

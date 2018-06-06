@@ -1,19 +1,18 @@
-package me.leoyuu.chat.apk.chat
+package me.leoyuu.chat.apk.module.chat
 
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_chat.*
-import me.leoyuu.chat.apk.MsgUpdateEvent
+import me.leoyuu.chat.apk.module.data.msg.MsgUpdateEvent
 import me.leoyuu.chat.apk.R
-import me.leoyuu.chat.apk.client.MsgManager
-import me.leoyuu.chat.apk.client.PacketSender
-import me.leoyuu.chat.apk.client.UserManager
-import me.leoyuu.chat.apk.login.LoginHelper
-import me.leoyuu.chat.apk.util.RxBus
-import me.leoyuu.chat.apk.util.RxObserver
+import me.leoyuu.chat.apk.module.data.msg.MsgManager
+import me.leoyuu.chat.apk.module.data.net.PacketSender
+import me.leoyuu.chat.apk.module.data.user.UserManager
+import me.leoyuu.chat.apk.module.login.LoginHelper
+import me.leoyuu.chat.apk.module.event.EventHub
+import me.leoyuu.chat.apk.module.event.EventObserver
 import me.leoyuu.chat.apk.util.rv.BaseRvAdapter
 import me.leoyuu.chat.apk.util.toast
 import me.leoyuu.chat.base.callback.SendCallback
@@ -30,7 +29,7 @@ class ChatActivity : AppCompatActivity() {
         setSend()
         msg_list.adapter = adapter
         msg_list.layoutManager = LinearLayoutManager(this)
-        RxBus.register(MsgUpdateEvent::class.java, msgObserver)
+        EventHub.register(MsgUpdateEvent::class.java, msgObserver)
         initData()
     }
 
@@ -61,11 +60,11 @@ class ChatActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        RxBus.unregister(msgObserver)
+        EventHub.unregister(msgObserver)
         super.onDestroy()
     }
 
-    private val msgObserver = object : RxObserver<MsgUpdateEvent> {
+    private val msgObserver = object : EventObserver<MsgUpdateEvent> {
         override fun onEvent(t: MsgUpdateEvent) {
             if (toUid == t.cid.id && t.cid.type == MsgManager.MsgType.Person) {
                 adapter.addTail(t.msg)

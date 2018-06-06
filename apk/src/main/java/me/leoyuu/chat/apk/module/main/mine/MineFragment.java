@@ -1,4 +1,4 @@
-package me.leoyuu.chat.apk.main.mine;
+package me.leoyuu.chat.apk.module.main.mine;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

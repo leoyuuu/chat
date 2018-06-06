@@ -1,8 +1,7 @@
-package me.leoyuu.chat.apk.client
+package me.leoyuu.chat.apk.module.data.msg
 
-import me.leoyuu.chat.apk.EventDispatcher
-import me.leoyuu.chat.apk.MsgUpdateEvent
-import me.leoyuu.chat.apk.login.LoginHelper
+import me.leoyuu.chat.apk.module.event.EventDispatcher
+import me.leoyuu.chat.apk.module.login.LoginHelper
 import me.leoyuu.chat.apk.util.loge
 
 /**
@@ -21,7 +20,7 @@ object MsgManager {
             val id = if (msg.fromId == LoginHelper.uid) msg.toId else msg.fromId
             addMsgToPerson(id, msg)
         } else {
-            addMsgToGroup(msg.gid, msg)
+            addMsgToGroup(msg)
         }
     }
 
@@ -41,7 +40,7 @@ object MsgManager {
         changeMsgOrder(id, msg, MsgType.Person)
     }
 
-    private fun addMsgToGroup(id: Int, msg: Message) {
+    private fun addMsgToGroup(msg: Message) {
         val list = groupMsg[msg.gid]
         if (list == null) {
             groupMsg[msg.gid] = mutableListOf(msg)

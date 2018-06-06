@@ -1,12 +1,12 @@
-package me.leoyuu.chat.apk.chat
+package me.leoyuu.chat.apk.module.chat
 
 import android.content.Context
 import android.view.LayoutInflater
 import kotlinx.android.synthetic.main.msg_item.view.*
 import me.leoyuu.chat.apk.R
 
-import me.leoyuu.chat.apk.client.Message
-import me.leoyuu.chat.apk.client.UserManager
+import me.leoyuu.chat.apk.module.data.msg.Message
+import me.leoyuu.chat.apk.module.data.user.UserManager
 import me.leoyuu.chat.apk.util.rv.BaseRvItemView
 
 /**

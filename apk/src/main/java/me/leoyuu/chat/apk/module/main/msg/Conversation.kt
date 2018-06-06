@@ -1,7 +1,7 @@
-package me.leoyuu.chat.apk.main.msg
+package me.leoyuu.chat.apk.module.main.msg
 
-import me.leoyuu.chat.apk.client.Message
-import me.leoyuu.chat.apk.client.MsgManager
+import me.leoyuu.chat.apk.module.data.msg.Message
+import me.leoyuu.chat.apk.module.data.msg.MsgManager
 
 /**
  * date 2018/6/6

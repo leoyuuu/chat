@@ -1,4 +1,4 @@
-package me.leoyuu.chat.apk.util
+package me.leoyuu.chat.apk.module.event
 
 /**
  * date 2018/6/6
@@ -6,6 +6,6 @@ package me.leoyuu.chat.apk.util
  *
  * @author leoyuu
  */
-interface RxObserver<T> {
+interface EventObserver<T> {
     fun onEvent(t: T)
 }

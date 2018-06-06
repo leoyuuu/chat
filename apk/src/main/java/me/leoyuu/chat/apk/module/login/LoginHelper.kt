@@ -1,6 +1,6 @@
-package me.leoyuu.chat.apk.login
+package me.leoyuu.chat.apk.module.login
 
-import me.leoyuu.chat.apk.client.User
+import me.leoyuu.chat.apk.module.data.user.User
 
 /**
  * date 2018/6/6

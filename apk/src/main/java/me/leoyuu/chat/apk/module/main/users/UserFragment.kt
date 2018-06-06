@@ -1,4 +1,4 @@
-package me.leoyuu.chat.apk.main.users
+package me.leoyuu.chat.apk.module.main.users
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -10,10 +10,10 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.layout_users.*
 
 import me.leoyuu.chat.apk.R
-import me.leoyuu.chat.apk.chat.ChatActivity
-import me.leoyuu.chat.apk.client.User
-import me.leoyuu.chat.apk.client.UserManager
-import me.leoyuu.chat.apk.login.LoginHelper
+import me.leoyuu.chat.apk.module.chat.ChatActivity
+import me.leoyuu.chat.apk.module.data.user.User
+import me.leoyuu.chat.apk.module.data.user.UserManager
+import me.leoyuu.chat.apk.module.login.LoginHelper
 import me.leoyuu.chat.apk.util.rv.SimpleRvAdapter
 import me.leoyuu.chat.apk.util.toast
 

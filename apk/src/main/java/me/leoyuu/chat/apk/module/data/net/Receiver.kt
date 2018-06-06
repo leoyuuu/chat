@@ -1,6 +1,8 @@
-package me.leoyuu.chat.apk.client
+package me.leoyuu.chat.apk.module.data.net
 
 import android.util.Log
+import me.leoyuu.chat.apk.module.data.msg.Message
+import me.leoyuu.chat.apk.module.data.msg.MsgManager
 
 import me.leoyuu.chat.base.net.PacketReceiver
 import me.leoyuu.proto.BasePackets

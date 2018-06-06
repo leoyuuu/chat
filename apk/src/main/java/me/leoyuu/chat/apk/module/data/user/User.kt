@@ -1,4 +1,4 @@
-package me.leoyuu.chat.apk.client
+package me.leoyuu.chat.apk.module.data.user
 
 /**
  * date 2018/6/5

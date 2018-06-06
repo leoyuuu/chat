@@ -1,4 +1,4 @@
-package me.leoyuu.chat.apk.client
+package me.leoyuu.chat.apk.module.data.net
 
 import android.os.Handler
 import android.os.Looper
@@ -23,8 +23,8 @@ object ClientManager {
 
     fun initConfig(host: String, port: Int, uid: Int, name: String) {
         client.config = ChatClientConfig(host, port, Receiver())
-        this.uid = uid
-        this.name = name
+        ClientManager.uid = uid
+        ClientManager.name = name
     }
 
     fun connect(callback: Callback) {

@@ -1,4 +1,4 @@
-package me.leoyuu.chat.apk.client
+package me.leoyuu.chat.apk.module.data.msg
 
 import me.leoyuu.proto.ChatPackets
 

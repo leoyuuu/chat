@@ -1,4 +1,4 @@
-package me.leoyuu.chat.apk.util
+package me.leoyuu.chat.apk.module.event
 
 import java.util.concurrent.Executor
 
@@ -8,7 +8,7 @@ import java.util.concurrent.Executor
  *
  * @author leoyuu
  */
-internal class RxRegister<T>(private val clazz: Class<T>, val observer: RxObserver<T>) {
+internal class EventContractor<T>(private val clazz: Class<T>, val observer: EventObserver<T>) {
     fun consume(e: Any, executor: Executor) {
         if (e.javaClass == clazz) {
             executor.execute { observer.onEvent(clazz.cast(e)) }

@@ -1,11 +1,11 @@
-package me.leoyuu.chat.apk.main
+package me.leoyuu.chat.apk.module.main
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import me.leoyuu.chat.apk.main.mine.MineFragment
-import me.leoyuu.chat.apk.main.msg.MsgFragment
-import me.leoyuu.chat.apk.main.users.UserFragment
+import me.leoyuu.chat.apk.module.main.mine.MineFragment
+import me.leoyuu.chat.apk.module.main.msg.MsgFragment
+import me.leoyuu.chat.apk.module.main.users.UserFragment
 
 /**
  * date 2018/6/5

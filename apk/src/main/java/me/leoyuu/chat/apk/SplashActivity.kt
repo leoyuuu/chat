@@ -5,9 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_splash.*
-import me.leoyuu.chat.apk.client.ClientManager
-import me.leoyuu.chat.apk.login.LoginHelper
-import me.leoyuu.chat.apk.main.MainActivity
+import me.leoyuu.chat.apk.module.data.net.ClientManager
+import me.leoyuu.chat.apk.module.login.LoginHelper
+import me.leoyuu.chat.apk.module.main.MainActivity
 import me.leoyuu.chat.base.callback.Callback
 
 class SplashActivity : AppCompatActivity() {
