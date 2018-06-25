@@ -40,7 +40,6 @@ protobuf {
             }
             task.builtins {
                 java {}
-                cpp {}
             }
         }
     }
