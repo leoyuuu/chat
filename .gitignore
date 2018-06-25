@@ -1,6 +1,7 @@
 build/
 out/
 bin/
+local.properties
 .settings/
 .gradle/
 .idea/
