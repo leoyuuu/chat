@@ -39,7 +39,9 @@ object ChatMsgHelper {
         Printer.println("send msg to group, gid:$gid, msg:$packet")
     }
 
+    @SuppressWarnings("unused")
     private fun checkSendGroup(gid:Int, fromId:Int):String {
+        // todo add group
         return ""
     }
 
@@ -57,7 +59,9 @@ object ChatMsgHelper {
         ClientsManager.get(uid)?.sendPacket(packet)
     }
 
+    @SuppressWarnings("unused")
     private fun checkSendPerson(toUid:Int, fromUid:Int):String {
+        // todo check person relation to set if do send
         return ""
     }
 
