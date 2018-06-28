@@ -3,12 +3,12 @@
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
-                                             tools:context=".main.MainActivity">
+    tools:context=".module.main.MainActivity">
 
     <TextView
             android:id="@+id/about_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="chat about"/>
+        android:text="这只是一个简单的聊天客户端，和同项目下的server可以配套使用，可以基于本客户端的协议进行扩展，对图片，视频，等内容进行补充，完善" />
 
 </android.support.constraint.ConstraintLayout>

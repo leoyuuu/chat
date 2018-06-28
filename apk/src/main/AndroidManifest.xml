@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".main.MainActivity"
+            android:name=".module.main.MainActivity"
                 android:label="@string/title_activity_main"/>
-        <activity android:name=".chat.ChatActivity"></activity>
+        <activity android:name=".module.chat.ChatActivity"></activity>
     </application>
 
 </manifest>
