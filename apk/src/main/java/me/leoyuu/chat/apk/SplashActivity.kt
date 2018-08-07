@@ -1,8 +1,8 @@
 package me.leoyuu.chat.apk
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_splash.*
 import me.leoyuu.chat.apk.module.data.net.ClientManager
@@ -34,6 +34,7 @@ class SplashActivity : AppCompatActivity() {
 
                 override fun onSuccess() {
                     LoginHelper.init(id, name)
+                    finish()
                     startActivity(Intent(this@SplashActivity, MainActivity::class.java))
                 }
             })
